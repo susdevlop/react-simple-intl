@@ -1,68 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+由于项目中引用了react-intl导致了项目出现了很大的问题，无法编译。所有尝试一下自己去造个小车轮试试
+编写需求：
+    1.只编写一个react组件、
+    2.这个react返回多个方法、对象、和组件
+    3.组件利用react的context技术生产一个provider
+    4.子组件内部利用provider的提供的context值去获取需要翻译的文本
 
-## Available Scripts
+组件IntlProvider是一个接收props.children并渲染的一个简单的组件 
+value值为一个对象，这个对象有两个值：{
+    lang:[string,a selected Text],//实际一个小轮子不需要提供这个值
+    languageObj:[Object,a selected language obj,eg:{"hello":""hello"}]
+}
 
-In the project directory, you can run:
+组件FormttedText是一个生成文本的组件，通过类内静态属性contextType使得组件本身获取到provider的提供的context值
+该组件需要一个以props形式传递进来的一个值的去配对contextType对应的字段，配对成功即渲染此字段 
+否则也不报错，毕竟看到报错太痛苦了= =，或者是用console.warning()去报
 
+准备工作：
+    1.熟悉context，了解context的兼容性
+    2.了解最早支持context的版本
+    3.创建准备好的字典文件
+    4.使用吧，想不出来了，想到再写
+
+项目尝试
 ### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 ### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
