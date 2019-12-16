@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import LanguageProvider from './simple-intl'
+import {FormttedText} from "./simple-intl"
+import B from './B'
+class App extends React.Component{
+    static contextType = LanguageProvider
+    constructor() {
+        super();
+    }
+    render() {
+        return <div>
+            <h1>this is h1</h1>
+            <FormttedText message="hello"/>
+            <hr />
+            <B/>
+        </div>
+    }
 }
-
 export default App;
